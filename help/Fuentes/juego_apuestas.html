@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Sistema de juego y apuestas - Casino: Ruleta</title>
+	<link rel=StyleSheet type="text/css" href="css/estilo.css" />
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<h1>Interacci&oacute;n con el juego y apuestas</h1>
+	
+	<p>
+		Los principales elementos de interacci&oacute;n con el juego son los siguientes:
+		
+		<br>
+		<br>
+		
+		<img src="img/roulette.png" width="150" height="150"><img src="img/tablero.png"> <img src="img/selector.jpg">
+		
+		<br>
+		
+		<ul>
+			<li><b>Ruleta</b>: Permite echar suerte tras apostar, y da a conocer el n&uacute;mero ganador de la ronda.
+			<li><b>Tapete</b>: En &eacute;l se ubican todas casillas, tanto num&eacute;ricas como especiales, a las que es posible apostar fichas.
+			<li><b>Selector</b>: Muestra la cantidad de fichas pose&iacute;das de cada tipo y permite seleccionar el tipo de ficha a apostar.
+		</ul>
+		
+		<h2>Tipos de casillas en el tapete</h2>
+		
+		Cabe diferenciar principalmente dos tipos de casillas:
+		
+		<ul>
+			<li><b>Casilla Num&eacute;rica</b>: Corresponde a las casillas de color negro y rojo, adem&aacute;s del n&uacute;mero 0.
+			<li><b>Casilla Especial</b>: Constituye el resto de casillas no espec&iacute;ficas a las que se puede apostar: color, docena, mitad...
+		</ul>
+		
+		<h2>Recompensas por casilla</h2>
+		
+		Al final de la ronda, se comprobar&aacute;n todas las casillas del tablero sobre las que el cliente haya apostado.
+		En funci&oacute;n del tipo de casilla y su relaci&oacute;n con el n&uacute;mero ganador, se obtendr&aacute;n diferentes recompensas:
+		
+		<br>
+		<br>
+		
+		<table border="1">
+			<tr>
+				<td><b>Tipo</b></td>
+				<td><b>Descripci&oacute;n</b></td>
+				<td><b>Fichas obtenidas (ganadas x apostadas)</b></td>
+			</tr>
+			<tr>
+				<td>Rojo/Negro</td>
+				<td>El jugador apuesta al color del n&uacute;mero ganador (rojo o negro)</td>
+				<td>1 x 1</td>
+			</tr>
+			<tr>
+				<td>Par/Impar</td>
+				<td>El jugador apuesta a que el n&uacute;mero ganador sea par o impar</td>
+				<td>1 x 1</td>
+			</tr>
+			<tr>
+				<td>Mitad</td>
+				<td>El jugador apuesta a que el n&uacute;mero ganador est&aacute; entre 1 y 18 (1&ordf; mitad) o 19 y 36 (2&ordf; mitad)</td>
+				<td>1 x 1</td>
+			</tr>
+			<tr>
+				<td>Docena</td>
+				<td>El jugador apuesta a que el n&uacute;mero ganador corresponda a una de las tres docenas</td>
+				<td>2 x 1</td>
+			</tr>
+			<tr>
+				<td>Columna</td>
+				<td>El jugador apuesta a que el n&uacute;mero ganador corresponda a una de las tres columnas (filas horizontales del tapete)</td>
+				<td>2 x 1</td>
+			</tr>
+			<tr>
+				<td>N&uacute;mero</td>
+				<td>El jugador apuesta a que el n&uacute;mero ganador est&aacute; en la casilla num&eacute;rica en cuesti&oacute;n, incluyendo el 0</td>
+				<td>35 x 1</td>
+			</tr>
+		</table>
+		
+		<br>
+		
+		<h3>Caso del 0</h3>
+		
+		Existe un <b>caso excepcional para el n&uacute;mero 0</b>, pues no se comporta como el resto de casillas num&eacute;ricas,
+		ya que a este n&uacute;mero no le corresponde ning&uacute;n color; tampoco se considera par o impar, ni tiene mitad, docena o columna.
+		
+		<ul>
+			<li>Si se apuesta al <b>n&uacute;mero</b> 0 y este sale ganador, la recompensa no difiere de cualquier otra casilla num&eacute;rica.
+			<li>En cambio, si se apuesta a alguna <b>casilla especial</b> y el 0 sale como ganador, se devuelve, por cada casilla especial
+			<b>la ficha colocada</b>, adem&aacute;s de <b>otra</b> ficha con la <b>mitad de valor</b>.
+		</ul>
+		
+		Es decir, si se apuesta una ficha de 10&euro; a una de las docenas y el n&uacute;mero 0 sale premiado, se devuelve al cliente
+		esa ficha de 10&euro; y una ficha extra de 5&euro;. No obstante, <b>la ficha extra no se proporciona en casos de apuestas menores a 10&euro;</b>.
+		
+		<br>
+		<br>
+		
+		<h2>&iquest;C&oacute;mo realizar las apuestas?</h2>
+		
+		Para poder realizar apuestas, es <b>imprescindible</b> que el cliente compre alguna ficha
+		en la pantalla <b>Comprar Fichas</b> cada vez que inicia sesi&oacute;n en el juego.
+		
+		<br>
+		<br>
+		
+		<img src="img/selector.jpg">
+		
+		<br>
+		<br>
+		
+		Una vez se cuente con fichas para poder apostar, bastar&aacute; con <b>seleccionar el bot&oacute;n circular</b> 
+		situado justo <b>encima del icono de la ficha</b> cuyo tipo se desee apostar. Es posible utilizar
+		la combinaci&oacute;n de teclas "Alt" + cualquier n&uacute;mero del 1 al 5 para moverse por los selectores.
+		
+		A continuaci&oacute;n, el usuario se dirigir&aacute; al tapete y <b>pulsar&aacute; el bot&oacute;n de la casilla</b>
+		correspondiente al valor num&eacute;rico o propiedad a la que desea apostar:
+		
+		<br>
+		<br>
+		
+		<img src="img/apostado.jpg">
+		
+		<br>
+		<br>
+		
+		Como se puede observar, aparecer&aacute; sobre la casilla pulsada
+		el icono del tipo de ficha que se haya apostado.
+		
+		As&iacute; mismo, es posible <b>retirar una apuesta</b> volviendo a seleccionar el bot&oacute;n
+		que contenga la ficha apostada. De esta manera, desaparecer&aacute; el icono de la ficha
+		y se volver&aacute; a a&ntilde;adir a la colecci&oacute;n de fichas del cliente.
+		
+		<br>
+		
+		<h2>&iquest;C&oacute;mo jugar una vez realizadas las apuestas?</h2>
+		
+		Tras asegurarse de que las casillas apostadas son las deseadas por parte del usuario,
+		ser&aacute; necesario pulsar el bot&oacute;n <img src="img/btn_apostar.jpg" width="90" height="20">.
+		
+		Esto activar&aacute; la ruleta, la cual podr&aacute; ahora ser accionada para mostrar el n&uacute;mero ganador:
+		
+		<br>
+		<br>
+		
+		<img src="img/apuesta.jpg">
+		
+		<br>
+		<br>
+		
+		Bastar&aacute; con hacer click sobre la ruleta o utilizar la combinaci&oacute;n 
+		de teclas "Alt" + P para dar a conocer el n&uacute;mero ganador.
+		
+		<br>
+		<br>
+		
+		<h2>Resultados de la ronda</h2>
+		
+		Tras accionar la ruleta, se mostrar&aacute; una peque&ntilde;a ventana emergente
+		en la que se visualizar&aacute; el n&uacute;mero que haya salido ganador:
+		
+		<br>
+		<br>
+		
+		<img src="img/ganador.jpg">
+		
+		<br>
+		<br>
+		
+		Para conocer los resultados de la ronda, el cliente deber&aacute;
+		pulsar el icono <img src="img/btn_cerrar.jpg"> para cerrar la ventana del n&uacute;mero ganador
+		y pasar a mostrar el resultado.
+		
+		<ul>
+			<li>Si no se ha ganado ninguna ficha, se muestra un breve mensaje a modo de consolaci&oacute;n.
+			<li>En cambio, si se ha ganado algo con las apuestas, se mostrar&aacute; un cuadro con informaci&oacute;n.
+		</ul>
+		
+		En caso de que se haya obtenido alguna recompensa, se mostrar&aacute; un peque&ntilde;o cuadro como el siguiente:
+		
+		<br>
+		<br>
+		
+		<img src="img/ganancias.jpg">
+		
+		<br>
+		<br>
+		
+		En el mismo se muestra la cantidad de fichas ganadas de cada tipo, indicado debajo del icono
+		de la ficha con el valor correspondiente al que se ha obtenido.
+		
+		Una vez el usuario pulse de nuevo el bot&oacute;n <img src="img/btn_cerrar.jpg">, se volver&aacute;
+		a la pantalla de juego y se limpiar&aacute; el tablero, actualizando el n&uacute;mero de fichas en posesi&oacute;n.
+	</p>
+	
+</body>
+
+</html>
